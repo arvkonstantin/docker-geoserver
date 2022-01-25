@@ -6,6 +6,7 @@ FROM tomcat:$IMAGE_VERSION
 LABEL maintainer="Tim Sutton<tim@linfiniti.com>"
 ARG GS_VERSION=2.20.2
 ARG WAR_URL=https://downloads.sourceforge.net/project/geoserver/GeoServer/${GS_VERSION}/geoserver-${GS_VERSION}-war.zip
+ARG STABLE_PLUGIN_BASE_URL=https://liquidtelecom.dl.sourceforge.net
 ARG DOWNLOAD_ALL_STABLE_EXTENSIONS=1
 ARG DOWNLOAD_ALL_COMMUNITY_EXTENSIONS=1
 ARG GEOSERVER_UID=1000
@@ -61,6 +62,7 @@ RUN chmod +x /scripts/*.sh;/scripts/setup.sh \
     ${CATALINA_HOME} ${FOOTPRINTS_DATA_DIR} ${GEOSERVER_DATA_DIR} /scripts ${CERT_DIR} ${FONTS_DIR} \
     /tmp/ /home/${USER}/ /community_plugins/ /plugins ${GEOSERVER_HOME} ${EXTRA_CONFIG_DIR} \
     /usr/share/fonts/ /geo_data;chmod o+rw ${CERT_DIR}
+
 
 EXPOSE  $HTTPS_PORT
 
