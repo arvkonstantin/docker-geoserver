@@ -159,6 +159,14 @@ if [ -z "${EMBEDDED_BROKER}" ]; then
     EMBEDDED_BROKER=enabled
 fi
 
+if [ -z "${CLUSTER_CONNECTION_RETRY_COUNT}" ]; then
+    CLUSTER_CONNECTION_RETRY_COUNT=10
+fi
+
+if [ -z "${CLUSTER_CONNECTION_MAX_WAIT}" ]; then
+    CLUSTER_CONNECTION_MAX_WAIT=500
+fi
+
 if [ -z "${DB_BACKEND}" ]; then
     DB_BACKEND=
 fi
@@ -302,4 +310,7 @@ if [ -z ${HASHING_ALGORITHM} ];then
     HASHING_ALGORITHM='SHA-256'
 fi
 
+if [ -z "${USE_DATETIME_IN_SHAPEFILE}" ]; then
+    USE_DATETIME_IN_SHAPEFILE=true
+fi
 
